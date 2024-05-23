@@ -37,7 +37,7 @@ const DealersChart = () => {
     console.log(user)
   return (
       <div>
-        <Title type='h2'>Статистика</Title>
+        <Title type='h2' style={{color:'white'}}>Статистика</Title>
           {
               user.role[1] ?
                   <ResponsiveContainer width="100%" height={300}>
@@ -47,7 +47,7 @@ const DealersChart = () => {
                           <YAxis />
                           <Tooltip />
                           <Legend />
-                          <Bar dataKey="count" fill="#8884d8" />
+                          <Bar dataKey="count" fill="white" />
                       </BarChart>
                   </ResponsiveContainer>
                   :
@@ -58,7 +58,7 @@ const DealersChart = () => {
                           <YAxis />
                           <Tooltip />
                           <Legend />
-                          <Bar dataKey="count" fill="#8884d8" />
+                          <Bar dataKey="count" fill="#3D4F51" />
                       </BarChart>
                   </ResponsiveContainer>
           }
