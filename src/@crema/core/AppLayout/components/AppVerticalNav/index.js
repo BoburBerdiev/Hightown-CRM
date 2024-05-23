@@ -32,11 +32,11 @@ const AppVerticalNav = () => {
       theme={sidebarColorSet.mode}
       mode='inline'
       className={clsx('app-main-sidebar-menu ', {
-        'menu-rounded': menuStyle === MenuStyle.ROUNDED,
+        // 'menu-rounded': menuStyle === MenuStyle.ROUNDED,
         // 'menu-rounded rounded-menu-reverse':
         //   menuStyle === MenuStyle.ROUNDED_REVERSE,
-        // 'menu-rounded standard-menu': menuStyle === MenuStyle.STANDARD,
-        // 'menu-rounded curved-menu': menuStyle === MenuStyle.CURVED_MENU,
+        'standard-menu': menuStyle === MenuStyle.STANDARD,
+        // 'curved-menu': menuStyle === MenuStyle.CURVED_MENU,
         'bg-color-menu':
           sidebarColorSet.sidebarBgColor !==
           defaultConfig.sidebar.colorSet.sidebarBgColor,

@@ -5,7 +5,8 @@ import AppAnimateGroup from '../../@crema/core/AppAnimateGroup';
 import './AuthWrapper.style.less';
 import {AppInfoView} from '../../@crema';
 import AppLogo from '../../@crema/core/AppLayout/components/AppLogo';
-import loginPage from '../../assets/login-page.jpg'
+import loginPageBackground from '../../assets/hightown-crm-bg.jpg'
+import loginPage from '../../assets/hightown.jpg'
 
 
 const AuthWrapper = ({children}) => {
@@ -20,7 +21,7 @@ const AuthWrapper = ({children}) => {
       duration={200}>
       <div className='auth-wrap' key={'wrap'}>
         <div className={'auth-wrap-bg-image'}>
-          <img src={loginPage} alt={'loginbgBanner'} />
+          <img src={loginPageBackground} alt={'loginbgBanner'} />
 
         </div>
         <Card className='auth-card'>

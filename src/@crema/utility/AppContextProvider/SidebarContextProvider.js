@@ -17,7 +17,7 @@ const SidebarContextProvider = ({children}) => {
     defaultConfig.sidebar.colorSet,
   );
   const [isSidebarBgImage, setSidebarBgImage] = useState(
-    defaultConfig.sidebar.isSidebarBgImage,
+    0,
   );
   const [sidebarBgImage, updateSidebarBgImage] = useState(
     defaultConfig.sidebar.sidebarBgImage,
@@ -25,6 +25,7 @@ const SidebarContextProvider = ({children}) => {
   const [sidebarMenuSelectedColor, updateSidebarMenuSelectedColor] = useState(
     defaultConfig.sidebar.sidebarMenuSelectedColor,
   );
+
 
   return (
     <SidebarContext.Provider

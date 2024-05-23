@@ -4,12 +4,12 @@ import {ThemeMode} from '../../../../shared/constants/AppEnums';
 import {useThemeContext} from '../../../utility/AppContextProvider/ThemeContextProvider';
 import {useSidebarContext} from '../../../utility/AppContextProvider/SidebarContextProvider';
 import PropTypes from 'prop-types';
-
+import sideBarImage from '../../../../assets/1.png'
 const {Sider} = Layout;
 
 const MainSidebar = ({children, className, collapsed = false, ...props}) => {
   const {themeMode} = useThemeContext();
-  const {sidebarColorSet, isSidebarBgImage, sidebarBgImage} =
+  const {sidebarColorSet, isSidebarBgImage} =
     useSidebarContext();
 
   return (
@@ -21,7 +21,7 @@ const MainSidebar = ({children, className, collapsed = false, ...props}) => {
         backgroundColor: sidebarColorSet.sidebarBgColor,
         color: sidebarColorSet.sidebarTextColor,
         backgroundImage: isSidebarBgImage
-          ? `url(/assets/images/sidebar/images/${sidebarBgImage}.png)`
+          ? `url(${sideBarImage})`
           : '',
       }}
       collapsed={collapsed}
