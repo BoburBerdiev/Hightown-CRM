@@ -47,7 +47,7 @@ const DealersChart = () => {
                           <YAxis />
                           <Tooltip />
                           <Legend />
-                          <Bar dataKey="count" fill="white" />
+                          <Bar dataKey="count" fill="#3D4F51" />
                       </BarChart>
                   </ResponsiveContainer>
                   :

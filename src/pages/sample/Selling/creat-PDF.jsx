@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     logo: {
         height: 70,
         width: 70,
-        marginBottom:10,
+        marginBottom: 10,
         objectFit: 'contain'
     },
     imageBg: {
@@ -138,10 +138,10 @@ const styles = StyleSheet.create({
         objectPosition: 'center',
         height: 400
     },
-        line:{
-        width:20,
-        height:'0.5px',
-        backgroundColor:'#d6b87b'
+    line: {
+        width: 20,
+        height: '0.5px',
+        backgroundColor: '#d6b87b'
     },
     //     TABLE
 
@@ -154,6 +154,7 @@ const styles = StyleSheet.create({
         borderColor: '#d6b87b',
         borderRightWidth: 0,
         borderBottomWidth: 0,
+        borderTopWidth: 0
     },
     tableRow: {
         margin: 'auto',
@@ -161,12 +162,13 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat',
     },
     tableCol: {
-        width: '50%',
+        // width: '50%',
         borderStyle: 'solid',
         borderColor: '#d6b87b',
         borderWidth: 1,
         borderLeftWidth: 0,
         borderTopWidth: 0,
+        borderRightWidth: 0
     },
     tableColRight: {
         width: '50%',
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
         borderBottom: 0
     },
     tableHeader: {
-        // width:'100%',
+        width: '70%',
         backgroundColor: '#d6b87b',
         padding: "1px 0 4px 0",
         color: 'white',
@@ -413,7 +415,12 @@ export default function CreatPDF({data}) {
                                 listIcon.map(item => (
                                     <View key={item?.icon}
                                           style={[styles.iconBox, {width: '33%', marginBottom: '15px', gap: "10px"}]}>
-                                        <View style={{display:"flex",alignItems:'center',gap:'10px',flexDirection:'row'}}>
+                                        <View style={{
+                                            display: "flex",
+                                            alignItems: 'center',
+                                            gap: '10px',
+                                            flexDirection: 'row'
+                                        }}>
                                             <View style={styles.line}></View>
                                             <View style={styles.iconParent}>
                                                 <Image style={styles.icon} src={item.icon}/>
@@ -452,7 +459,7 @@ export default function CreatPDF({data}) {
                                 Проект:
                             </Text>
                             <Text>
-                                Wonderful city
+                                Hightown city
                             </Text>
                         </View>
 
@@ -546,82 +553,75 @@ export default function CreatPDF({data}) {
                                 </Text>
                             </View>
                             <View style={styles.tableRow}>
-                                <View style={styles.tableCol}>
-                                    <Text style={styles.tableCell}> Цена со скидкой {payment?.discount}%</Text>
-                                </View>
-                                <View style={styles.tableCol}>
-
-                                    <View style={[styles.row]}>
-                                        <View style={styles.tableColRight}>
-                                            <Text
-                                                style={styles.tableCell}>{payment?.skidka?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
-                                        </View>
-                                        <View style={{width: '50%'}}>
-                                            <Text
-                                                style={styles.tableCell}>{payment?.skidkaSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
-                                        </View>
+                                <View style={[{...styles.row, width: '70%'}, styles.tableCol]}>
+                                    <View style={styles.tableColRight}>
+                                        <Text style={styles.tableCell}> Цена со скидкой {payment?.discount}%</Text>
                                     </View>
+                                    <View style={styles.tableColRight}>
+                                        <Text
+                                            style={styles.tableCell}>{payment?.skidkaSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
+                                    </View>
+                                </View>
+                                <View style={{width: '30%'}}>
+                                    <Text
+                                        style={styles.tableCell}>{payment?.skidka?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
                                 </View>
                             </View>
                             <View style={styles.tableRow}>
-                                <View style={styles.tableCol}>
-                                    <Text style={styles.tableCell}> {payment?.fristPay}% предоплата </Text>
-                                </View>
-                                <View style={styles.tableCol}>
-
-                                    <View style={[styles.row]}>
-                                        <View style={styles.tableColRight}>
-                                            <Text
-                                                style={styles.tableCell}>{payment?.initialPayment?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
-                                        </View>
-                                        <View style={{width: '50%'}}>
-                                            <Text
-                                                style={styles.tableCell}>{payment?.initialPaymentSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
-                                        </View>
+                                <View style={[{...styles.row, width: '70%'}, styles.tableCol]}>
+                                    <View style={styles.tableColRight}>
+                                        <Text style={styles.tableCell}> {payment?.fristPay}% предоплата </Text>
+                                    </View>
+                                    <View style={styles.tableColRight}>
+                                        <Text
+                                            style={styles.tableCell}>{payment?.initialPaymentSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
                                     </View>
                                 </View>
+                                <View style={{width: '30%'}}>
+                                    <Text
+                                        style={styles.tableCell}>{payment?.initialPayment?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
+                                </View>
+
+
                             </View>
                             {
                                 payment?.monthCount > 0
                                 &&
                                 <View style={styles.tableRow}>
-                                    <View style={styles.tableCol}>
-                                        <Text style={styles.tableCell}> Сумма ежемесячных оплат
-                                            ({payment?.monthCount})</Text>
-                                    </View>
-                                    <View style={styles.tableCol}>
+                                    <View style={[{...styles.row, width: '70%'}, styles.tableCol]}>
 
-                                        <View style={[styles.row]}>
-                                            <View style={styles.tableColRight}>
-                                                <Text
-                                                    style={styles.tableCell}>{payment?.monthPayment?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
-                                            </View>
-                                            <View style={{width: '50%'}}>
-                                                <Text
-                                                    style={styles.tableCell}>{payment?.monthPaymentSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
-                                            </View>
+                                        <View style={styles.tableColRight}>
+                                            <Text style={styles.tableCell}> Сумма ежемесячных оплат
+                                                ({payment?.monthCount})</Text>
                                         </View>
+                                        <View style={styles.tableColRight}>
+                                            <Text
+                                                style={styles.tableCell}>{payment?.monthPaymentSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
+                                        </View>
+                                    </View>
+                                    <View style={{width: '30%'}}>
+                                        <Text
+                                            style={styles.tableCell}>{payment?.monthPayment?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
                                     </View>
                                 </View>
                             }
 
                             <View style={[styles.tableRow]}>
-                                <View style={styles.tableCol}>
-                                    <Text style={styles.tableCell}> Итоговая цена</Text>
-                                </View>
-                                <View style={styles.tableCol}>
 
-                                    <View style={[styles.row]}>
-                                        <View style={styles.tableColRight}>
-                                            <Text
-                                                style={styles.tableCell}>{payment?.amountExcludingSkidk?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
-                                        </View>
-                                        <View style={{width: '50%'}}>
-                                            <Text
-                                                style={styles.tableCell}>{payment?.amountExcludingSkidkSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
-                                        </View>
+                                <View style={[{...styles.row, width: '70%'}, styles.tableCol]}>
+                                    <View style={styles.tableColRight}>
+                                        <Text style={styles.tableCell}> Итоговая цена</Text>
+                                    </View>
+                                    <View style={styles.tableColRight}>
+                                        <Text
+                                            style={styles.tableCell}>{payment?.amountExcludingSkidkSum?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} сум </Text>
                                     </View>
                                 </View>
+                                <View style={{width: '30%'}}>
+                                    <Text
+                                        style={styles.tableCell}>{payment?.amountExcludingSkidk?.toLocaleString('en-US', {style: 'decimal'}).replace(/,/g, ' ')} $</Text>
+                                </View>
+
                             </View>
                         </View>
                     ))
@@ -683,14 +683,7 @@ export default function CreatPDF({data}) {
                     </View>
 
                 </View>
-                <View style={styles.bottomInfo}>
-                    <View style={[styles.row, styles.listItem]}>
-                        <Text>
-                            Цены действительны до первого повышения
-                        </Text>
-                    </View>
 
-                </View>
 
                 <View style={[styles.center, styles.marginY]}>
                     <Text style={styles.title}>
