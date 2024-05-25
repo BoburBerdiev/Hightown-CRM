@@ -8,12 +8,11 @@ import moment from "moment";
 import logo from '../../../assets/logo-pdf.png'
 import location from '../../../assets/location-crm.png'
 import wonderfullCity from '../../../assets/hightown-crm-bg.jpg'
-import mapPinned from '../../../assets/pdf-icon/map-pinned.png'
-import building from '../../../assets/pdf-icon/building-2.png'
-import trees from '../../../assets/pdf-icon/trees.png'
-import sofa from '../../../assets/pdf-icon/sofa.png'
-import gamepad from '../../../assets/pdf-icon/gamepad-2.png'
-import parking from '../../../assets/pdf-icon/circle-parking.png'
+import locationPdf from '../../../assets/icons/location.png'
+import quality from '../../../assets/icons/high-quality.png'
+import investment from '../../../assets/icons/investment.png'
+import smartCity from '../../../assets/icons/smart-city.png'
+import fastArea from '../../../assets/icons/free-icon-rocket-launch-8440703.png'
 
 
 // Register fonts
@@ -111,7 +110,8 @@ const styles = StyleSheet.create({
         marginTop: '20px'
     },
     iconList: {
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        justifyContent:'center'
     },
 
     iconBox: {
@@ -122,8 +122,8 @@ const styles = StyleSheet.create({
 
     },
     icon: {
-        width: 20,
-        height: 20,
+        width: 18,
+        height: 18,
         objectFit: 'contain',
         objectPosition: 'center'
     },
@@ -210,30 +210,25 @@ export default function CreatPDF({data}) {
 
     const listIcon = [
         {
-            icon: mapPinned,
-            title: 'Идеальное расположение'
+            icon: locationPdf,
+            title: 'Идеальная локация'
         },
         {
-            icon: building,
-            title: 'Уникальные проекты '
+            icon: quality,
+            title: 'Высокое качество'
         },
         {
-            icon: trees,
-            title: 'Впечатляющая архитектура '
+            icon: smartCity,
+            title: 'Удобная инфраструктура '
         },
         {
-            icon: sofa,
-            title: 'Роскошное Лобби'
+            icon: investment,
+            title: 'Правильная инвестиция'
         },
         {
-            icon: gamepad,
-            title: '50.000 кв метров Торгово Развлекательный Центр'
-        },
-        {
-            icon: parking,
-            title: 'Подземный паркинг'
-        },
-
+            icon: fastArea,
+            title: 'Быстро развивающийся район'
+        }
     ]
 
 
@@ -394,7 +389,7 @@ export default function CreatPDF({data}) {
 
                 <View style={[styles.center, styles.marginY]}>
                     <Text style={styles.title}>
-                        +99871 205 02 03
+                        +99895 681 81 81
                     </Text>
                 </View>
             </Page>
@@ -419,7 +414,7 @@ export default function CreatPDF({data}) {
                                             display: "flex",
                                             alignItems: 'center',
                                             gap: '10px',
-                                            flexDirection: 'row'
+                                            flexDirection: 'row',
                                         }}>
                                             <View style={styles.line}></View>
                                             <View style={styles.iconParent}>
@@ -443,7 +438,7 @@ export default function CreatPDF({data}) {
                 </View>
                 <View style={[styles.center, styles.marginY]}>
                     <Text style={styles.title}>
-                        +99871 205 02 03
+                        +99895 681 81 81
                     </Text>
                 </View>
             </Page>
@@ -687,7 +682,7 @@ export default function CreatPDF({data}) {
 
                 <View style={[styles.center, styles.marginY]}>
                     <Text style={styles.title}>
-                        +99871 205 02 03
+                        +99895 681 81 81
                     </Text>
                 </View>
             </Page>
