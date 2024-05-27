@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     },
     imageBg: {
         width: '100%',
-        objectFit: 'cover',
+        // objectFit: 'cover',
         height: 150,
         marginBottom: 8,
     },

@@ -3,6 +3,7 @@ import './index.style.less';
 import PropTypes from 'prop-types';
 import {useSidebarContext} from '../../../../utility/AppContextProvider/SidebarContextProvider';
 import logo from '../../../../../assets/logo.png'
+
 const AppLogo = ({hasSidebarColor}) => {
   const {sidebarColorSet} = useSidebarContext();
   return (
