@@ -78,7 +78,7 @@ const Index = () => {
                     // For simplicity, let's log the blob URL
                     setIsLoadingPdf(false)
                     setPdfId(null)
-                    saveAs(blob,'Wonderfull-city.pdf')
+                    saveAs(blob,'Hightown-city.pdf')
                 });
         }
     }, [pdfData]);

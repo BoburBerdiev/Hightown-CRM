@@ -11,7 +11,7 @@ const jwtAxios = axios.create({
 export const setAuthToken = (token) => {
     if (token) {
         jwtAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        // localStorage.setItem('wonderfulToken', token);
+        // localStorage.setItem('hightownToken', token);
     } else {
         delete jwtAxios.defaults.headers.common['Authorization'];
 

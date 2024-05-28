@@ -10,7 +10,7 @@ const SITE_URL =
 
 const FACEBOOK_APP_ID = 'XXXXXXXXX';
 
-const defaultTitle = 'Wonderful City';
+const defaultTitle = 'Hightown City';
 const defaultDescription =
   'Admin Panel';
 const defaultImage =

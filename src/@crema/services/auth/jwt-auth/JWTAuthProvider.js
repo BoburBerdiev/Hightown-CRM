@@ -30,7 +30,7 @@ const JWTAuthAuthProvider = ({children}) => {
   jwtAxios.interceptors.response.use(
       (res) => res,
       async (err) => {
-        const getRefToken = localStorage.getItem('wonderfulRefToken')
+        const getRefToken = localStorage.getItem('hightownRefToken')
 
         if (err.response.status === 401 && err.response.config.method !== "get" && getRefToken) {
           try {
@@ -38,7 +38,7 @@ const JWTAuthAuthProvider = ({children}) => {
               refresh: getRefToken
             }
             const newToken = await apiService.postData('/users/user/token/refresh/', refreshTokenData);
-            localStorage.setItem('wonderfulToken', newToken.access)
+            localStorage.setItem('hightownToken', newToken.access)
 
             // Retry the original request with the new token
             const originalRequest = err.config;
@@ -63,7 +63,7 @@ const JWTAuthAuthProvider = ({children}) => {
 
   useEffect(() => {
     const getAuthUser = () => {
-      const token = localStorage.getItem('wonderfulToken');
+      const token = localStorage.getItem('hightownToken');
       if (!token) {
         setJWTAuthData({
           user: undefined,
@@ -101,15 +101,15 @@ const JWTAuthAuthProvider = ({children}) => {
   }, []);
 
   const signInUser = async ({userName, password}) => {
-    if (localStorage.getItem('wonderfulRefToken')){
-      localStorage.removeItem('wonderfulRefToken')
+    if (localStorage.getItem('hightownRefToken')){
+      localStorage.removeItem('hightownRefToken')
     }
 
     dispatch({type: FETCH_START});
     try {
       const {data} = await jwtAxios.post(`/Authorize/login`,{userName,password});
-      localStorage.setItem('wonderfulToken', data);
-      // localStorage.setItem('wonderfulRefToken', data.refresh);
+      localStorage.setItem('hightownToken', data);
+      // localStorage.setItem('hightownRefToken', data.refresh);
       setAuthToken(data);
       const {data:userInfo} = await jwtAxios.get('/Authorize');
       setJWTAuthData({user: userInfo, isAuthenticated: true, isLoading: false});
@@ -145,8 +145,8 @@ const JWTAuthAuthProvider = ({children}) => {
   };
 
   const logout = async () => {
-    localStorage.removeItem('wonderfulToken');
-    localStorage.removeItem('wonderfulRefToken');
+    localStorage.removeItem('hightownToken');
+    localStorage.removeItem('hightownRefToken');
     // setAuthToken();
     setJWTAuthData({
       user: null,

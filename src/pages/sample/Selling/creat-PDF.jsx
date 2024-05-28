@@ -7,7 +7,7 @@ import MontserratMedium from '../../../assets/fonts/Montserrat-Medium.ttf'
 import moment from "moment";
 import logo from '../../../assets/logo-pdf.png'
 import location from '../../../assets/location-crm.png'
-import wonderfullCity from '../../../assets/hightown-crm-bg.jpg'
+import hightownCity from '../../../assets/hightown-crm-bg.jpg'
 import locationPdf from '../../../assets/icons/location.png'
 import quality from '../../../assets/icons/high-quality.png'
 import investment from '../../../assets/icons/investment.png'
@@ -312,7 +312,7 @@ export default function CreatPDF({data}) {
                         </View>
                     </View>
                     <View style={styles.widthHalf}>
-                        <Image style={[styles.imageBg]} src={wonderfullCity}/>
+                        <Image style={[styles.imageBg]} src={hightownCity}/>
                     </View>
                 </View
                 >
